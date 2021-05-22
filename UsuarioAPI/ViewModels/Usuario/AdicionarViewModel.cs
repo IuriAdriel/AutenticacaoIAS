@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace UsuarioAPI.ViewModels
+namespace UsuarioAPI.ViewModels.Usuario
 {
-    public class AdicionarUsuarioViewModel
+    public class AdicionarViewModel
     {
         [Required(ErrorMessage = "O nome deve ser preenchido.")]
         [MinLength(2, ErrorMessage = "O nome deve ter no mínimo 2 caracteres.")]

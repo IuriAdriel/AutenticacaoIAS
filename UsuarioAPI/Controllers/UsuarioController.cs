@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using UsuarioAPI.Util;
-using UsuarioAPI.ViewModels;
+using UsuarioAPI.ViewModels.Usuario;
 using Microsoft.AspNetCore.Mvc;
 using Nucleo.Exceptions;
 using Aplicacao.DTO;
@@ -8,6 +8,7 @@ using Aplicacao.Interfaces;
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using UsuarioAPI.ViewModels;
 
 namespace UsuarioAPI.Controllers
 {
@@ -27,11 +28,11 @@ namespace UsuarioAPI.Controllers
 
         [HttpPost]
         [Route("/api/v1/usuario/adicionar")]
-        public async Task<IActionResult> Adicionar([FromBody] AdicionarUsuarioViewModel model)
+        public async Task<IActionResult> Adicionar([FromBody] AdicionarViewModel adicionarViewModel)
         {
             try
             {
-                var usuarioDTO = _mapeador.Map<UsuarioDTO>(model);
+                var usuarioDTO = _mapeador.Map<UsuarioDTO>(adicionarViewModel);
                 var usuarioCriado = await _usuarioServico.Adicionar(usuarioDTO);
 
                 return Ok(new ResultadoViewModel
@@ -53,11 +54,11 @@ namespace UsuarioAPI.Controllers
 
         [HttpPut]
         [Route("/api/v1/usuario/atualizar")]
-        public async Task<IActionResult> Atualizar([FromBody] AtualizarUsuarioViewModel model)
+        public async Task<IActionResult> Atualizar([FromBody] AtualizarViewModel atualizarViewModel)
         {
             try
             {
-                var usuarioDTO = _mapeador.Map<UsuarioDTO>(model);
+                var usuarioDTO = _mapeador.Map<UsuarioDTO>(atualizarViewModel);
                 var usuarioCriado = await _usuarioServico.Atualizar(usuarioDTO);
 
                 return Ok(new ResultadoViewModel

@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace UsuarioAPI.ViewModels
+namespace UsuarioAPI.ViewModels.Usuario
 {
-    public class AtualizarUsuarioViewModel
+    public class AtualizarViewModel
     {
         [Required(ErrorMessage = "Campo Id é obrigatório.")]
         [Range(1, long.MaxValue, ErrorMessage = "O Id deve ser maior que zero.")]
