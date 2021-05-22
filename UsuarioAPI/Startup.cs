@@ -1,5 +1,5 @@
 using AutoMapper;
-using UsuarioAPI.ViewModels;
+using UsuarioAPI.ViewModels.Usuario;
 using Dominio.Entidades;
 using Infra.Contexto;
 using Infra.Interfaces;

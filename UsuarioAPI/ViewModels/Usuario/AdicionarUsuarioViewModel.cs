@@ -2,12 +2,8 @@
 
 namespace UsuarioAPI.ViewModels.Usuario
 {
-    public class AtualizarViewModel
+    public class AdicionarUsuarioViewModel
     {
-        [Required(ErrorMessage = "Campo Id é obrigatório.")]
-        [Range(1, long.MaxValue, ErrorMessage = "O Id deve ser maior que zero.")]
-        public long Id { get; set; }
-
         [Required(ErrorMessage = "O nome deve ser preenchido.")]
         [MinLength(2, ErrorMessage = "O nome deve ter no mínimo 2 caracteres.")]
         [MaxLength(80, ErrorMessage = "O nome deve ter no máximo 80 caracteres.")]

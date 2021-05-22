@@ -28,7 +28,7 @@ namespace UsuarioAPI.Controllers
 
         [HttpPost]
         [Route("/api/v1/usuario/adicionar")]
-        public async Task<IActionResult> Adicionar([FromBody] AdicionarViewModel adicionarViewModel)
+        public async Task<IActionResult> Adicionar([FromBody] AdicionarUsuarioViewModel adicionarViewModel)
         {
             try
             {
@@ -54,7 +54,7 @@ namespace UsuarioAPI.Controllers
 
         [HttpPut]
         [Route("/api/v1/usuario/atualizar")]
-        public async Task<IActionResult> Atualizar([FromBody] AtualizarViewModel atualizarViewModel)
+        public async Task<IActionResult> Atualizar([FromBody] AtualizarUsuarioViewModel atualizarViewModel)
         {
             try
             {
