@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace UsuarioAPI.ViewModels
+namespace UsuarioAPI.ViewModels.Autenticacao
 {
-    public class TokenViewModel
+    public class AtualizarTokenViewModel
     {
         [Required(ErrorMessage = "O token é obrigatório.")]
         public string Token { get; set; }

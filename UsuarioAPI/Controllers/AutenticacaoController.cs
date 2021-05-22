@@ -1,13 +1,10 @@
 ﻿using Aplicacao.DTO;
 using Aplicacao.Interfaces;
-using UsuarioAPI.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using UsuarioAPI.ViewModels;
-using Microsoft.AspNetCore.Authorization;
+using UsuarioAPI.ViewModels.Autenticacao;
 
 namespace UsuarioAPI.Controllers
 {
@@ -25,15 +22,15 @@ namespace UsuarioAPI.Controllers
 
         [HttpPost]
         [Route("entrar")]
-        public async Task<IActionResult> Entrar([FromBody] AutenticacaoEntrarViewModel entrar)
+        public async Task<IActionResult> Entrar([FromBody] EntrarViewModel entrarViewModel)
         {
-            if (string.IsNullOrEmpty(entrar.Usuario) || string.IsNullOrEmpty(entrar.Senha))
+            if (string.IsNullOrEmpty(entrarViewModel.Usuario) || string.IsNullOrEmpty(entrarViewModel.Senha))
                 return BadRequest("Requisição inválida.");
 
             var token = await _loginServico.ValidarCredencial(new UsuarioDTO
             {
-                Apelido = entrar.Usuario,
-                Senha = entrar.Senha
+                Apelido = entrarViewModel.Usuario,
+                Senha = entrarViewModel.Senha
             });
 
             if (token == null)
@@ -49,15 +46,15 @@ namespace UsuarioAPI.Controllers
 
         [HttpPost]
         [Route("atualizar-token")]
-        public async Task<IActionResult> AtualizarToken([FromBody] TokenViewModel tokenViewModel)
+        public async Task<IActionResult> AtualizarToken([FromBody] AtualizarTokenViewModel atualizarTokenViewModel)
         {
-            if (tokenViewModel == null)
+            if (atualizarTokenViewModel == null)
                 return BadRequest("Requisição inválida.");
 
             var token = await _loginServico.ValidarCredencial(new TokenDTO
             {
-                Token = tokenViewModel.Token,
-                RefreshToken = tokenViewModel.RefreshToken
+                Token = atualizarTokenViewModel.Token,
+                RefreshToken = atualizarTokenViewModel.RefreshToken
             });
 
             if (token == null)
