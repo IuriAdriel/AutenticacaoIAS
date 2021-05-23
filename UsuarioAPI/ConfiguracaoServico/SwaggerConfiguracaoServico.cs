@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace UsuarioAPI.ConfiguracaoServico
 {
-    public class SwaggerConfiguracaoServico : IConfiguracaoID
+    public class SwaggerConfiguracaoServico : IConfiguracaoInjecaoDependencia
     {
         public void ConfigurarServico(IServiceCollection services, IConfiguration configuration)
         {

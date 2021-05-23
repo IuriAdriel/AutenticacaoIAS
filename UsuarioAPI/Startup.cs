@@ -46,7 +46,7 @@ namespace UsuarioAPI
             services.AddControllers();
 
             var injecaoDeDependencia = typeof(Startup).Assembly.ExportedTypes.Where(x =>
-            typeof(IConfiguracaoID).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract).Select(Activator.CreateInstance).Cast<IConfiguracaoID>().ToList();
+            typeof(IConfiguracaoInjecaoDependencia).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract).Select(Activator.CreateInstance).Cast<IConfiguracaoInjecaoDependencia>().ToList();
 
             injecaoDeDependencia.ForEach(i => i.ConfigurarServico(services, Configuration));
         }

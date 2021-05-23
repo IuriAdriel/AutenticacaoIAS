@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace UsuarioAPI.ConfiguracaoServico
 {
-    public class DadosConfiguracaoServico : IConfiguracaoID
+    public class DadosConfiguracaoServico : IConfiguracaoInjecaoDependencia
     {
         public void ConfigurarServico(IServiceCollection services, IConfiguration configuration)
         {

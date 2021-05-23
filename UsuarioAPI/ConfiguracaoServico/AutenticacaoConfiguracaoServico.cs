@@ -9,7 +9,7 @@ using System.Text;
 
 namespace UsuarioAPI.ConfiguracaoServico
 {
-    public class AutenticacaoConfiguracaoServico : IConfiguracaoID
+    public class AutenticacaoConfiguracaoServico : IConfiguracaoInjecaoDependencia
     {
         public void ConfigurarServico(IServiceCollection services, IConfiguration configuration)
         {

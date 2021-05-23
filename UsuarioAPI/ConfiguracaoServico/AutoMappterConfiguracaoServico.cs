@@ -7,7 +7,7 @@ using UsuarioAPI.ViewModels.Usuario;
 
 namespace UsuarioAPI.ConfiguracaoServico
 {
-    public class AutoMappterConfiguracaoServico : IConfiguracaoID
+    public class AutoMappterConfiguracaoServico : IConfiguracaoInjecaoDependencia
     {
         public void ConfigurarServico(IServiceCollection services, IConfiguration configuration)
         {
